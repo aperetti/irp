@@ -13,8 +13,8 @@ from llama_index.llms import OpenRouter
 key = os.getenv("LLM_KEY")
 
 
-STORAGE_DIR = "./backend/storage"  # directory to cache the generated index
-DATA_DIR = "./backend/data"  # distreaming_response.print_response_stream()rectory containing the documents to index
+STORAGE_DIR = "./storage"  # directory to cache the generated index
+DATA_DIR = "./data"  # distreaming_response.print_response_stream()rectory containing the documents to index
 
 service_context = ServiceContext.from_defaults(
     llm=OpenRouter(
