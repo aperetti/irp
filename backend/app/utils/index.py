@@ -7,15 +7,20 @@ from llama_index import (
     VectorStoreIndex,
     load_index_from_storage,
     ServiceContext,
+    OpenAIEmbedding
 )
 from llama_index.llms import OpenRouter
 
 key = os.getenv("LLM_KEY")
+oa_key = os.getenv("OPENAI_KEY")
+
+embedding = OpenAIEmbedding(api_key=oa_key)
 
 
 STORAGE_DIR = "./storage"  # directory to cache the generated index
 DATA_DIR = "./data"  # distreaming_response.print_response_stream()rectory containing the documents to index
 
+OpenAIEmbedding
 service_context = ServiceContext.from_defaults(
     llm=OpenRouter(
         api_key=key,
@@ -23,7 +28,7 @@ service_context = ServiceContext.from_defaults(
         context_window=4096,
         model="mistralai/mixtral-8x7b-instruct",
     ),
-    embed_model="local"
+    embed_model=embedding
 )
 
 
